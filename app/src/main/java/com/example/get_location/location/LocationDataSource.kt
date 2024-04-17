@@ -18,45 +18,6 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 
-//class LocationDataSource(
-//    private val context: Context,
-//    private val fusedLocationClient: FusedLocationProviderClient,
-//    private val currentLocationRequest: com.google.android.gms.location.LocationRequest
-//): LocationSource {
-//
-//    @SuppressLint("MissingPermission")
-//    override suspend fun fetchCurrentLocation(): Flow<LocationModel> {
-//        return callbackFlow {
-//            val callback = object : LocationCallback() {
-//                override fun onLocationResult(result: LocationResult) {
-//                    try {
-//                        trySend(
-//                            LocationModel(
-//                                longitude = result.lastLocation?.longitude ?: 0.0,
-//                                latitude = result.lastLocation?.latitude ?: 0.0
-//                            )
-//                        )
-//                    } catch (e: Exception) {
-//                        Log.e("Error", e.message.toString())
-//                    }
-//                }
-//            }
-//
-//            fusedLocationClient.requestLocationUpdates(
-//                currentLocationRequest,
-//                callback,
-//                Looper.getMainLooper()
-//            )
-//                .addOnFailureListener { e ->
-//                    close(e)
-//                }
-//
-//            awaitClose{
-//                fusedLocationClient.removeLocationUpdates(callback)
-//            }
-//        }
-//    }
-//}
 
 class LocationDataSource (
     private val context: Context,
